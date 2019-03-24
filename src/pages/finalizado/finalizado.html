@@ -1,0 +1,27 @@
+<!--
+  Generated template for the FinalizadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{juegofinalizado.Juego}} Finalizado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p>{{juegofinalizado.Usuario}}! terminaste de contestar las preguntas de la categoria {{juegofinalizado.Juego}}</p>
+    <p>Puntaje Total es de {{juegofinalizado.PuntajeTotal}} puntos</p>
+    <ion-list *ngFor="let item of juegofinalizado.PreguntaEstadistica">
+        <p>{{item.PreguntaEstadisticaTexto}}</p>
+        <p>Puntaje : {{item.PuntajePreguntaEstadistica}}</p>
+        <ion-list *ngFor="let item2 of item.RespuestaEstadistica">
+              <strong *ngIf="item2.EsCorrecta" [ngStyle]="{ 'color':'green' }">{{item2.RespuestaTexto}}</strong>
+              <strong *ngIf="!item2.EsCorrecta && item2.RespuestaElegida" [ngStyle]="{ 'color':'red' }">{{item2.RespuestaTexto}}</strong>
+              <p *ngIf="!item2.EsCorrecta && !item2.RespuestaElegida">{{item2.RespuestaTexto}}</p>
+        </ion-list>
+    </ion-list>
+
+  <button ion-button color="primary" (click)="toHome()">Volver al Home</button>
+</ion-content>

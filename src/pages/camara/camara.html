@@ -1,0 +1,13 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Camara test
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button block (click)="tomarFoto()">Toma una foto</button>
+  <img [src]="image" *ngIf="image" />
+</ion-content>

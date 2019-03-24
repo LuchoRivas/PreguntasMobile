@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Info del Usuario</ion-title>
+  </ion-navbar>
+</ion-header>
+      
+      
+<ion-content padding>
+
+  <ion-list *ngIf="userMobile != null" >
+    <h4>Hola {{userMobile.Nick}}</h4>
+    <p>Tu Token es {{userMobile.Token}}</p>
+    <p>Tu Id de Usuario es {{userMobile.UsuarioId}}</p>
+  </ion-list>
+    <button ion-button (click)="jugar()" block color="secondary">Jugar</button>
+    <button ion-button (click)="logout()" block color="dark">Logout</button>
+    <button padding ion-button (click)="camara()">Camara TEST</button>
+</ion-content>

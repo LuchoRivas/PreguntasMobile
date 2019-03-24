@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Registrar Usuario</ion-title>
+    </ion-navbar>
+</ion-header>
+          
+<ion-content padding>
+
+<h4>Registrar</h4>
+
+<ion-list>
+    <ion-item>
+        <ion-input [(ngModel)]="usuario" placeholder="Usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="nickname" placeholder="Nickname"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="confPassword" placeholder="Confirmar contraseña" type="password"></ion-input>
+    </ion-item>
+</ion-list>
+<ion-list *ngIf="errorLogin != null" >
+    <ion-label *ngFor="let item of errorLogin">
+        {{item.Msg}}
+    </ion-label>
+</ion-list>
+<button ion-button block (click)="register()">
+	Registrar
+</button>
+</ion-content>
