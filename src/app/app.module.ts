@@ -22,7 +22,7 @@ import { FinalizadoPage } from '../pages/finalizado/finalizado';
 import { CamaraPage } from '../pages/camara/camara';
 import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
