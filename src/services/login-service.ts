@@ -27,7 +27,7 @@ export class LoginService
 
     register(model:any) : Observable<Response>
     {
-        let url = this.entorno.url + 'Account/LoginMobile';
+        let url = this.entorno.url + 'Account/RegisterMobile';
         let options = this.generateOptions();
         var headers = new Headers();
         headers.append("Accept", "application/json");

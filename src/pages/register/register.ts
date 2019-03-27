@@ -11,7 +11,8 @@ import { HomePage } from '../home/home';
   providers: [LoginService]
 })
 
-export class RegisterPage {
+export class RegisterPage 
+{
 
   usuario:string;
   nickname:string;
@@ -19,27 +20,30 @@ export class RegisterPage {
   confPassword:string;
   errorLogin : any[];
 
-    constructor(public navCtrl: NavController, public http: HttpClient, private entorno: Entorno, private loginService: LoginService) {
+  constructor(public navCtrl: NavController, 
+              public http: HttpClient, 
+              private entorno: Entorno, 
+              private loginService: LoginService) {}
 
-    }
-
-    public gotoAbout(){
-        this.navCtrl.push(RegisterPage);
-    }
-
-    register()
+  public gotoAbout()
   {
+      this.navCtrl.push(RegisterPage);
+  }
+
+  register()
+  {
+    //Codigo viejo que no se ni para que esta aca
     //let url = this.entorno.url+'Account/RegisterMobile';
     //let postData = new FormData();
-    let errorLogin : any[];
     // postData.append('Email', this.usuario);
     // postData.append('Password', this.password);
     // postData.append('ConfirmPassword', this.confPassword);
     // postData.append('NickName', this.nickname);
     // postData.append('esMobile', 'true');
     //Almacena los campos de registro en la interface FormData
-
-
+    let errorLogin : any[];
+    
+    //Objeto para enviar el formulario de registro
     let postData =
     {
       Email: this.usuario,
@@ -50,10 +54,10 @@ export class RegisterPage {
     }
 
     this.loginService.register(postData)
-    .subscribe( res =>
+    .subscribe(res =>
     {
       let data = res.json();
-      console.log(res);
+      //console.log(res);
       if(data.Error != null)
       {
         this.errorLogin = data.Error;
@@ -61,6 +65,7 @@ export class RegisterPage {
 
       if (data.Response != null)
       {
+        //Convierte el objeto en string para almacenar todo en un solo campo
         let pepe = JSON.stringify(data.Response);
         if(data.Result)
         {
@@ -72,7 +77,6 @@ export class RegisterPage {
       }
     });
 
-    console.log(postData);
+    //console.log(postData);
   }
-
 }

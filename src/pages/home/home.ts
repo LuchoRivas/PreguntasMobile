@@ -103,8 +103,4 @@ export class HomePage
   {
     this.navCtrl.push(RegisterPage);
   }
-  mapa()
-  {
-    this.navCtrl.push(GeolocationPage);
-  }
 }

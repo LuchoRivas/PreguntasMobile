@@ -84,7 +84,7 @@ export class ContestarPage
       PreguntaId: this.model.PreguntaId,
       RespuestaId: this.model.RespuestaId
     }
-    var contenido = JSON.stringify(respuesta)
+    var contenido = JSON.stringify(respuesta);
     formData.append('contenido', contenido);
     formData.append('usuarioId', usuario.UsuarioId);
     formData.append('Token', usuario.Token);

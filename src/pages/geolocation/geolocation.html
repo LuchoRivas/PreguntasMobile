@@ -11,6 +11,8 @@
 </ion-header>
 
 <ion-content padding>
-    <div #map id="mapa"></div>
+  <button ion-button block (click)="guardarUbicacion()">Guardar coordenadas</button>
+  <button ion-button block *ngIf="array.length > 0"  (click)="sincro()">Sincronizar</button>
+  <div #map id="mapa"></div>
 </ion-content>
 

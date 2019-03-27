@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { JugarPage } from '../jugar/jugar';
 import { HttpClient } from '@angular/common/http';
 import { CamaraPage } from '../camara/camara';
+import { GeolocationPage } from '../geolocation/geolocation';
 
 @Component({
   selector: 'page-user',
@@ -45,5 +46,8 @@ export class UserPage
   {
     this.navCtrl.setRoot(CamaraPage);
   }
-
+  mapa()
+  {
+    this.navCtrl.push(GeolocationPage);
+  }
 }
