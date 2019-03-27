@@ -1,3 +1,4 @@
+import { HistorialPage } from './../pages/historial/historial';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -36,6 +37,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContestarPage,
     FinalizadoPage,
     GeolocationPage,
+    HistorialPage,
     ListPage
   ],
   imports: [
@@ -56,6 +58,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContestarPage,
     FinalizadoPage,
     GeolocationPage,
+    HistorialPage,
     ListPage
   ],
   providers:

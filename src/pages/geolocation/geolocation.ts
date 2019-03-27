@@ -1,3 +1,4 @@
+import { HistorialPage } from './../historial/historial';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
@@ -19,6 +20,7 @@ export class GeolocationPage
   locacion: any;
   array = [];
   userMobile: any;
+  hide : boolean;
   @ViewChild('map') mapRef : ElementRef;
 
   constructor(public navCtrl: NavController,
@@ -29,6 +31,7 @@ export class GeolocationPage
 
   ionViewDidLoad()
   {
+    this.hide = true;
     var readUserLocalStorage = localStorage.getItem('userMobile');
     if(readUserLocalStorage != null)
     {
@@ -76,14 +79,14 @@ export class GeolocationPage
       this.loading.dismiss();
       let marker = new google.maps.Marker({
         position: locacion,
-        map: mapa
+        map: mapa,
+        draggable: true
       })
     }
   )};
 
   guardarUbicacion()
   {
-
     const cfg =
     {
       enableHighAccuracy: true
@@ -104,7 +107,7 @@ export class GeolocationPage
       this.userMobile.Localizaciones = this.array;
       let pepe = JSON.stringify(this.userMobile);
       localStorage.setItem('userMobile', pepe);
-
+      this.hide = false;
      }).catch((error) => 
      {
        console.log('Error... pepeHands', error);
@@ -132,8 +135,44 @@ export class GeolocationPage
     .subscribe( res =>
     {
       let data = res.json();
-      console.log(data)
+      console.log(data);
+      if(data.Result == "OK")
+      {
+        this.hide = true;
+        alert("Sincronizacion completa");
+        var readUserLocalStorage = localStorage.getItem('userMobile');
+        if(readUserLocalStorage != null)
+        {
+          this.userMobile = JSON.parse(readUserLocalStorage);
+        }
+        this.userMobile.Localizaciones = [];
+        let pepe = JSON.stringify(this.userMobile);
+        localStorage.setItem('userMobile', pepe);
+        console.log(this.userMobile);
+      }
+      else
+      {
+        alert("No se pudo sincronizar");
+      }
+    });
+  };
+  historial()
+  {
+    this.navCtrl.push(HistorialPage);
+    // let usuario =
+    // {
+    //   Token: pepo.Token,
+    //   UsuarioId: pepo.UsuarioId
+    // }
+    // var idcategoria = this.navParams.get("categoriaId");
+    // let objStr = JSON.stringify(idcategoria);
+    // var contenido = "?UsuarioId="+usuario.UsuarioId+"&Token="+usuario.Token+"&contenido="+objStr;
 
-    })
+
+    // this.preguntaService.preguntarGet(contenido)
+    // .subscribe( res =>
+    // {
+    //   let data = res.json();
+    // }
   }
-}
+};

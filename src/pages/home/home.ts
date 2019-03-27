@@ -96,6 +96,9 @@ export class HomePage
         //Root a la pantalla de usuario con pepe como UserMobile
         this.navCtrl.setRoot(UserPage, { userMobile: pepe });
       }
+      else {
+        alert("No se pudieron sincronizar los datos")
+      }
     });
   }
   // Para registrar
