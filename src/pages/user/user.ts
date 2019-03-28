@@ -12,9 +12,6 @@ import { GeolocationPage } from '../geolocation/geolocation';
   templateUrl: 'user.html'
 })
 
-
-
-
 export class UserPage
 {
   userMobile: any;

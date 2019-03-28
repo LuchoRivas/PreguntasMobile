@@ -40,7 +40,7 @@ export class HistorialPage
       zoom: 15
     };
 
-    const mapa = new google.maps.Map(this.mapRef.nativeElement, options);
+    const mapa = new google.maps.Map(this.mapRef.nativeElement);
 
     google.maps.event.addListenerOnce(mapa, 'idle', () => 
     {
@@ -93,16 +93,26 @@ export class HistorialPage
           position: locacion,
           map: mapa
         });
-        }
+        //Centra el mapa segun la ultima localizacion
+          if(i == localizaciones.length - 1) 
+          {
+            var latlng = new google.maps.LatLng(localizaciones[i].Latitud, localizaciones[i].Longitud);
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
+            mapa.setCenter(latlng);
+          }
+        }
+      }
+
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) 
+        {
+          return function() 
+          {
             infowindow.setContent(localizaciones[i][0]);
             infowindow.open(mapa, marker);
           }
         })(marker, i));
   
-      }
-    });
-  }
+    })
+  };
 }
