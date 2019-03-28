@@ -25,7 +25,6 @@ import { CamaraPage } from '../pages/camara/camara';
 import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
-import { BackgroundGeolocationOriginal } from '@ionic-native/background-geolocation';
 
 @NgModule({
   declarations: [
@@ -73,7 +72,6 @@ import { BackgroundGeolocationOriginal } from '@ionic-native/background-geolocat
     Entorno,
     HttpClient,
     Geolocation,
-    BackgroundGeolocationOriginal,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

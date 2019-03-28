@@ -1,3 +1,4 @@
+import { TrackingPage } from './../tracking/tracking';
 import { Entorno } from './../../models/urlconfig';
 import { LoginService } from './../../services/login-service';
 import { Component } from '@angular/core';
@@ -106,4 +107,14 @@ export class HomePage
   {
     this.navCtrl.push(RegisterPage);
   }
+    // Mapa
+    mapa()
+    {
+      this.navCtrl.push(GeolocationPage);
+    }
+    // Tracking
+    tracking()
+    {
+      this.navCtrl.push(TrackingPage);
+    }
 }
