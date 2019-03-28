@@ -1,7 +1,7 @@
 import { HistorialService } from './../../services/historial-service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 
 declare var google : any;
 
@@ -25,29 +25,8 @@ export class HistorialPage
   ionViewDidLoad() {
     this.loading = this.loadCtrl.create();
     this.loading.present();
-    //this.dibujarMapa();
     this.obtenerHistorial();
   }
-
-  dibujarMapa()
-  {
-
-    const locacion = new google.maps.LatLng('-34.5377264', '-58.4690324');
-
-    const options =
-    {
-      center: locacion,
-      zoom: 15
-    };
-
-    const mapa = new google.maps.Map(this.mapRef.nativeElement);
-
-    google.maps.event.addListenerOnce(mapa, 'idle', () => 
-    {
-      this.loading.dismiss();
-    }
-    
-  )};
 
   obtenerHistorial()
   {
@@ -103,16 +82,14 @@ export class HistorialPage
         }
       }
 
-
         google.maps.event.addListener(marker, 'click', (function(marker, i) 
         {
           return function() 
           {
-            infowindow.setContent(localizaciones[i][0]);
+            infowindow.setContent('<strong style="text-align: center;">Agregado<br>' + localizaciones[i - 1].FechaHora + '</strong>');
             infowindow.open(mapa, marker);
           }
         })(marker, i));
-  
     })
-  };
+  }; // /ObtenerHistorial
 }

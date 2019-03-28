@@ -114,6 +114,7 @@ export class GeolocationPage
        this.loading.dismiss();
      });
   }
+  
   // Sincroniza las localizaciones
   sincro()
   {
@@ -127,6 +128,7 @@ export class GeolocationPage
       Localizaciones: pepo.Localizaciones
     }
     var contenido = JSON.stringify(pepo.Localizaciones);
+
     formData.append('contenido', contenido);
     formData.append('usuarioId', usuarioData.UsuarioId);
     formData.append('Token', usuarioData.Token);
@@ -156,23 +158,9 @@ export class GeolocationPage
       }
     });
   };
+
   historial()
   {
     this.navCtrl.push(HistorialPage);
-    // let usuario =
-    // {
-    //   Token: pepo.Token,
-    //   UsuarioId: pepo.UsuarioId
-    // }
-    // var idcategoria = this.navParams.get("categoriaId");
-    // let objStr = JSON.stringify(idcategoria);
-    // var contenido = "?UsuarioId="+usuario.UsuarioId+"&Token="+usuario.Token+"&contenido="+objStr;
-
-
-    // this.preguntaService.preguntarGet(contenido)
-    // .subscribe( res =>
-    // {
-    //   let data = res.json();
-    // }
   }
 };

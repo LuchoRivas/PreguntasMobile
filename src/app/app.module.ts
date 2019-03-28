@@ -1,3 +1,4 @@
+import { TrackingPage } from './../pages/tracking/tracking';
 import { HistorialPage } from './../pages/historial/historial';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +25,7 @@ import { CamaraPage } from '../pages/camara/camara';
 import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
+import { BackgroundGeolocationOriginal } from '@ionic-native/background-geolocation';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     FinalizadoPage,
     GeolocationPage,
     HistorialPage,
+    TrackingPage,
     ListPage
   ],
   imports: [
@@ -59,6 +62,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     FinalizadoPage,
     GeolocationPage,
     HistorialPage,
+    TrackingPage,
     ListPage
   ],
   providers:
@@ -69,6 +73,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     Entorno,
     HttpClient,
     Geolocation,
+    BackgroundGeolocationOriginal,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
 import { HomePage } from '../home/home';
 import { JugarPage } from '../jugar/jugar';
 import { HttpClient } from '@angular/common/http';
 import { CamaraPage } from '../camara/camara';
 import { GeolocationPage } from '../geolocation/geolocation';
+import { TrackingPage } from '../tracking/tracking';
 
 @Component({
   selector: 'page-user',
@@ -43,8 +43,14 @@ export class UserPage
   {
     this.navCtrl.setRoot(CamaraPage);
   }
+
   mapa()
   {
     this.navCtrl.push(GeolocationPage);
+  }
+
+  tracking()
+  {
+    this.navCtrl.push(TrackingPage);
   }
 }
