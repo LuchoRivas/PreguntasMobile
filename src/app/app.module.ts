@@ -1,3 +1,4 @@
+import { InfinitescrollPage } from './../pages/infinitescroll/infinitescroll';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { TrackingPage } from './../pages/tracking/tracking';
 import { HistorialPage } from './../pages/historial/historial';
@@ -26,6 +27,7 @@ import { CamaraPage } from '../pages/camara/camara';
 import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
+import { RestApiProvider } from '../providers/rest-api/rest-api';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     GeolocationPage,
     HistorialPage,
     TrackingPage,
+    InfinitescrollPage,
     ListPage
   ],
   imports: [
@@ -63,6 +66,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     GeolocationPage,
     HistorialPage,
     TrackingPage,
+    InfinitescrollPage,
     ListPage
   ],
   providers:
@@ -74,7 +78,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HttpClient,
     Geolocation,
     BackgroundGeolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestApiProvider
   ]
 })
 export class AppModule {}

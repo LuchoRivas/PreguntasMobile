@@ -48,12 +48,11 @@ export class TrackingPage {
 
     console.log('start');
 
-    this.backgroundGeolocation
-    .configure(config)
-    .subscribe((location: BackgroundGeolocationResponse) => {
-      console.log(location);
-      this.logs.push(`${location.latitude},${location.longitude}`);
-    });
+    // this.backgroundGeolocation.configure(config)
+    // .subscribe((location: BackgroundGeolocationResponse) => {
+    //   console.log(location);
+    //   this.logs.push(`${location.latitude},${location.longitude}`);
+    // });
 
     // start recording location
     this.backgroundGeolocation.start();
