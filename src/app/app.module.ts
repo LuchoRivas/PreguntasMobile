@@ -1,3 +1,4 @@
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { TrackingPage } from './../pages/tracking/tracking';
 import { HistorialPage } from './../pages/historial/historial';
 import { HttpModule } from '@angular/http';
@@ -72,6 +73,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     Entorno,
     HttpClient,
     Geolocation,
+    BackgroundGeolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

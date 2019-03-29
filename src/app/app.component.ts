@@ -1,3 +1,4 @@
+import { TrackingPage } from './../pages/tracking/tracking';
 
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -24,7 +25,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Jugar', component: JugarPage }
+      { title: 'Jugar', component: JugarPage },
+      { title: 'pepe', component: TrackingPage }
     ];
 
   }
