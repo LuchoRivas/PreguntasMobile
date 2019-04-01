@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { JugarPage } from '../pages/jugar/jugar';
 import { InfinitescrollPage } from '../pages/infinitescroll/infinitescroll';
 
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,12 +17,40 @@ import { InfinitescrollPage } from '../pages/infinitescroll/infinitescroll';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  id;
+  token;
+
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen,
+              private onesignal: OneSignal) {
     this.initializeApp();
+
+    // this.onesignal.startInit("1886c3d2-8245-4231-b79f-936dfc473cb5", "750133270745");
+
+    // this.onesignal.inFocusDisplaying(this.onesignal.OSInFocusDisplayOption.InAppAlert);
+
+    // this.onesignal.setSubscription(true);
+
+    // this.onesignal.getIds()
+    // .then((ids) => {
+    //   this.id = ids.userId;
+    //   this.token = ids.pushToken;
+    // });
+
+    // this.onesignal.handleNotificationReceived().subscribe(() => {
+
+    // });
+
+    // this.onesignal.handleNotificationOpened().subscribe(() => {
+      
+    // });
+
+    // this.onesignal.endInit();
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -39,6 +68,20 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // OneSignal Code start:
+    // Enable to debug issues:
+    // window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+    var notificationOpenedCallback = function(jsonData) {
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    };
+
+    window["plugins"].OneSignal
+      .startInit("1886c3d2-8245-4231-b79f-936dfc473cb5", "750133270745")
+      .handleNotificationOpened(notificationOpenedCallback)
+      .endInit();
+
     });
   }
 
