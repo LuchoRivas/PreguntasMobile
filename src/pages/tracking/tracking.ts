@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 
-@IonicPage()
 @Component({
   selector: 'page-tracking',
   templateUrl: 'tracking.html',
@@ -48,11 +47,11 @@ export class TrackingPage {
 
     console.log('start');
 
-    // this.backgroundGeolocation.configure(config)
-    // .subscribe((location: BackgroundGeolocationResponse) => {
-    //   console.log(location);
-    //   this.logs.push(`${location.latitude},${location.longitude}`);
-    // });
+    this.backgroundGeolocation.configure(config)
+    .subscribe((location: BackgroundGeolocationResponse) => {
+      console.log(location);
+      this.logs.push(`${location.latitude},${location.longitude}`);
+    });
 
     // start recording location
     this.backgroundGeolocation.start();

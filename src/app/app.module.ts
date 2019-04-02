@@ -28,6 +28,7 @@ import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { RestApiProvider } from '../providers/rest-api/rest-api';
     Entorno,
     HttpClient,
     Geolocation,
+    OneSignal,
     BackgroundGeolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestApiProvider
