@@ -14,6 +14,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import  { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +29,7 @@ import { Entorno } from '../models/urlconfig';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
-import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     OneSignal,
     BackgroundGeolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestApiProvider
+    RestApiProvider,
+    LocationTrackerProvider
   ]
 })
 export class AppModule {}

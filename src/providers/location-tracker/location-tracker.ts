@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {  NgZone } from '@angular/core';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
@@ -13,11 +13,17 @@ export class LocationTrackerProvider
   public watch: any;
   public lat: number = 0;
   public lng: number = 0;
-  constructor(public http: HttpModule,public zone: NgZone,public geolocation:Geolocation,public backgroundGeolocation:BackgroundGeolocation) {
-    console.log('Hello LocationTrackerProvider Provider');
-  }
-  startTracking() {
-    let config = {
+  constructor(public http: HttpModule,
+              public zone: NgZone,
+              public geolocation:Geolocation,
+              public backgroundGeolocation:BackgroundGeolocation)
+    {
+      console.log('Hello LocationTrackerProvider Provider');
+    }
+  startTracking()
+  {
+    let config =
+    {
       desiredAccuracy: 0,
       stationaryRadius: 20,
       distanceFilter: 10,
@@ -25,7 +31,7 @@ export class LocationTrackerProvider
       interval: 2000
     };
 
-    this.backgroundGeolocation.configure(config).then((location) => {
+    this.backgroundGeolocation.configure(config).subscribe((location) => {
 
       console.log('BackgroundGeolocation:  ' + location.latitude + ',' + location.longitude);
 

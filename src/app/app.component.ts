@@ -24,33 +24,39 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private onesignal: OneSignal) {
     this.initializeApp();
 
+    //IDS one signal - Firebase
     // this.onesignal.startInit("1886c3d2-8245-4231-b79f-936dfc473cb5", "750133270745");
 
-    // this.onesignal.inFocusDisplaying(this.onesignal.OSInFocusDisplayOption.InAppAlert);
 
+    //this.onesignal.inFocusDisplaying(this.onesignal.OSInFocusDisplayOption.InAppAlert);
+
+    //activa suscripcion
     // this.onesignal.setSubscription(true);
 
+    //Obtiene ids
     // this.onesignal.getIds()
     // .then((ids) => {
     //   this.id = ids.userId;
     //   this.token = ids.pushToken;
     // });
 
+    //Notificacion recibida
     // this.onesignal.handleNotificationReceived().subscribe(() => {
 
     // });
 
+    //Notificacion abierta
     // this.onesignal.handleNotificationOpened().subscribe(() => {
-      
+
     // });
 
-    // this.onesignal.endInit();
+    //this.onesignal.endInit();
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -63,24 +69,32 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+    this.platform.ready().then(() =>
+    {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
       // OneSignal Code start:
-    // Enable to debug issues:
-    // window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+      //Enable to debug issues:
+      //window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
-    var notificationOpenedCallback = function(jsonData) {
-      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-    };
+      var notificationOpenedCallback = function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+      var notificationReceivedCallback = function(jsonData) {
+        console.log('notificationReceivedCallback: ' + JSON.stringify(jsonData));
+      };
 
-    window["plugins"].OneSignal
-      .startInit("1886c3d2-8245-4231-b79f-936dfc473cb5", "750133270745")
-      .handleNotificationOpened(notificationOpenedCallback)
-      .endInit();
+      const oneSignalAppId = "1886c3d2-8245-4231-b79f-936dfc473cb5";
+      const googleProyectNumber = "750133270745";
+
+      window["plugins"].OneSignal
+        .startInit(oneSignalAppId, googleProyectNumber)
+        .handleNotificationReceived(notificationReceivedCallback)
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
 
     });
   }
