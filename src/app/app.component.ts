@@ -95,7 +95,6 @@ export class MyApp {
         .handleNotificationReceived(notificationReceivedCallback)
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
-
     });
   }
 
