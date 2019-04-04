@@ -9,5 +9,7 @@
 
 <ion-content padding>
   <button ion-button block (click)="tomarFoto()">Toma una foto</button>
-  <img [src]="image" *ngIf="image" />
+
+  <button ion-button block (click)="obtenerFoto()">Foto de la galeria</button>
+  <img src="{{contenidoFoto}}" />
 </ion-content>
