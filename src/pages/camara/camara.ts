@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @IonicPage()
@@ -18,7 +18,7 @@ export class CamaraPage {
 
   tomarFoto()
   {
-    const options: CameraOptions = 
+    const options: CameraOptions =
     {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,

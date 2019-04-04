@@ -13,7 +13,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import  { HttpClient } from '@angular/common/http';

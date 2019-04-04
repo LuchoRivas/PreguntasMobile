@@ -117,4 +117,9 @@ export class HomePage
     {
       this.navCtrl.push(TrackingPage);
     }
+        // Tracking
+        camara()
+        {
+          this.navCtrl.push(CamaraPage);
+        }
 }
