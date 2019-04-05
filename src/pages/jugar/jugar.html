@@ -12,12 +12,14 @@
     <ion-title>Selecciona una categoria</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content  padding>
+  <div>
+      <button ion-button (click)="camara()">camara</button>
+  </div>
   <div *ngIf="lista != null" >
     <button ion-button id="{{cat.Id}}" color="primary" *ngFor="let cat of lista" block (click)="cargarCategoria(cat)" style="text-align: center">
       {{cat.Nombre}}
     </button>
   </div>
-     
+
 </ion-content>

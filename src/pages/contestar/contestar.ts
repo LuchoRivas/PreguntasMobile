@@ -5,13 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { FinalizadoPage } from '../finalizado/finalizado';
 import $ from 'jquery';
 
-/**
- * Generated class for the ContestarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-contestar',
